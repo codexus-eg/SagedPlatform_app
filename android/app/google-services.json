@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "996554868328",
+    "project_id": "sagedonlineplatform",
+    "storage_bucket": "sagedonlineplatform.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996554868328:android:c91452067368c846c35ddd",
+        "android_client_info": {
+          "package_name": "com.codenredstech.saged_platform"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKYn3xVHmp5dGJLFf-Zrrw_FI3QCsinWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996554868328:android:7142fac80208b714c35ddd",
+        "android_client_info": {
+          "package_name": "com.example.saged_sec_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKYn3xVHmp5dGJLFf-Zrrw_FI3QCsinWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

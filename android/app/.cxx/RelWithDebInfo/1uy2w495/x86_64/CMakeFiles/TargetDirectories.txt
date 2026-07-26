@@ -1,0 +1,2 @@
+D:/My_Works/Flutter_Projects/koraiem_app/saged_online_platform/android/app/.cxx/RelWithDebInfo/1uy2w495/x86_64/CMakeFiles/edit_cache.dir
+D:/My_Works/Flutter_Projects/koraiem_app/saged_online_platform/android/app/.cxx/RelWithDebInfo/1uy2w495/x86_64/CMakeFiles/rebuild_cache.dir

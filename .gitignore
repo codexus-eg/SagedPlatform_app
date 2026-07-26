@@ -1,0 +1,79 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+*.tmp
+*.temp
+
+# Custom/temporary files
+build_log.txt
+.claude/
+
+# IDEs and editors
+# IntelliJ IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
+# Visual Studio Code
+.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Android related
+/android/local.properties
+/android/key.properties
+/android/.gradle/
+/android/app/debug/
+/android/app/profile/
+/android/app/release/
+**/GeneratedPluginRegistrant.java
+**/*.keystore
+**/*.jks
+
+# iOS/macOS related
+**/ios/Flutter/.last_build_id
+**/ios/.symlinks/
+**/ios/Pods/
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/flutter_export_environment.sh
+/ios/Flutter/App.framework
+/ios/Flutter/Flutter.framework
+/ios/Flutter/Flutter.podspec
+/ios/GeneratedPluginRegistrant.h
+/ios/GeneratedPluginRegistrant.m
+/macos/Flutter/ephemeral/
+/macos/GeneratedPluginRegistrant.swift
+
+# Linux related
+/linux/flutter/ephemeral/
+/linux/flutter/Generated*.cmake
+
+# Windows related
+/windows/flutter/ephemeral/
+/windows/flutter/Generated*.cmake
+
+# Symbolication and obfuscation
+app.*.symbols
+app.*.map.json
+
+# Installers, executables, and binaries
+*.exe
+*.msi
+*.apk
+*.aab
+*.ipa
