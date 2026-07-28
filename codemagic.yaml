@@ -20,26 +20,27 @@ workflows:
           - ios_cert_manual # تأكد أن هذا هو نفس "اسم المستعار" (Alias) للشهادة المرفوعة في كودماجيك
 
     scripts:
-      - name: Set iOS deployment target
-        script: |
-          sed -i '' 's/IPHONEOS_DEPLOYMENT_TARGET = [0-9.]*;/IPHONEOS_DEPLOYMENT_TARGET = 13.0;/g' ios/Runner.xcodeproj/project.pbxproj
+      scripts:
+        - name: Set iOS deployment target
+          script: |
+            sed -i '' 's/IPHONEOS_DEPLOYMENT_TARGET = [0-9.]*;/IPHONEOS_DEPLOYMENT_TARGET = 15.0;/g' ios/Runner.xcodeproj/project.pbxproj
 
-      - name: Clean and Get Dependencies
-        script: |
-          flutter clean
-          flutter pub upgrade  # استخدام upgrade بدلاً من get لتحديث الحزم
-          cd ios
-          rm -rf Pods          # مسح مجلد الـ Pods القديم
-          rm -rf Podfile.lock  # مسح ملف القفل القديم
-          pod repo update      # تحديث مستودع الـ Pods
-          pod install          # تثبيت الـ Pods من جديد
+        - name: Clean and Get Dependencies
+          script: |
+            flutter clean
+            flutter pub upgrade  # استخدام upgrade بدلاً من get لتحديث الحزم
+            cd ios
+            rm -rf Pods          # مسح مجلد الـ Pods القديم
+            rm -rf Podfile.lock  # مسح ملف القفل القديم
+            pod repo update      # تحديث مستودع الـ Pods
+            pod install          # تثبيت الـ Pods من جديد
 
-      - name: Apply Vault Profiles
-        script: xcode-project use-profiles
+        - name: Apply Vault Profiles
+          script: xcode-project use-profiles
 
-      - name: Build IPA
-        script: |
-          flutter build ipa --release --export-options-plist=$HOME/export_options.plist
+        - name: Build IPA
+          script: |
+            flutter build ipa --release --export-options-plist=$HOME/export_options.plist
 
     artifacts:
       - build/ios/ipa/*.ipa
