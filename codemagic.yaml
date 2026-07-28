@@ -5,42 +5,40 @@ workflows:
     instance_type: mac_mini_m2
 
     integrations:
-      # تأكد أن هذا الاسم هو نفس اسم الـ integration المضاف في حسابك على كودماجيك
       app_store_connect: noourway
 
     environment:
       flutter: stable
       xcode: latest
       cocoapods: default
-
       ios_signing:
         provisioning_profiles:
-          - SagedPlatform_Manual_Profile # تم التعديل لاسم بروفايل SagedPlatform الجديد
+          - SagedPlatform_Manual_Profile
         certificates:
-          - ios_cert_manual # تأكد أن هذا هو نفس "اسم المستعار" (Alias) للشهادة المرفوعة في كودماجيك
+          - ios_cert_manual
 
     scripts:
-      scripts:
-        - name: Set iOS deployment target
-          script: |
-            sed -i '' 's/IPHONEOS_DEPLOYMENT_TARGET = [0-9.]*;/IPHONEOS_DEPLOYMENT_TARGET = 15.0;/g' ios/Runner.xcodeproj/project.pbxproj
+      - name: Set iOS deployment target
+        script: |
+          sed -i '' 's/IPHONEOS_DEPLOYMENT_TARGET = [0-9.]*;/IPHONEOS_DEPLOYMENT_TARGET = 15.0;/g' ios/Runner.xcodeproj/project.pbxproj
 
-        - name: Clean and Get Dependencies
-          script: |
-            flutter clean
-            flutter pub upgrade  # استخدام upgrade بدلاً من get لتحديث الحزم
-            cd ios
-            rm -rf Pods          # مسح مجلد الـ Pods القديم
-            rm -rf Podfile.lock  # مسح ملف القفل القديم
-            pod repo update      # تحديث مستودع الـ Pods
-            pod install          # تثبيت الـ Pods من جديد
+      - name: Clean and Get Dependencies
+        script: |
+          flutter clean
+          flutter pub upgrade
+          cd ios
+          rm -rf Pods
+          rm -rf Podfile.lock
+          pod repo update
+          pod install
 
-        - name: Apply Vault Profiles
-          script: xcode-project use-profiles
+      - name: Apply Vault Profiles
+        script: |
+          xcode-project use-profiles
 
-        - name: Build IPA
-          script: |
-            flutter build ipa --release --export-options-plist=$HOME/export_options.plist
+      - name: Build IPA
+        script: |
+          flutter build ipa --release --export-options-plist=$HOME/export_options.plist
 
     artifacts:
       - build/ios/ipa/*.ipa
